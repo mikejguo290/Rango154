@@ -238,8 +238,13 @@ def search(request):
 			result_list = run_query(query)
 	return render_to_response('rango/search.html', {'result_list': result_list}, context)
 	
+def history(request):
+	"""
+	rehash ex3.7
+	"""
+	context = RequestContext(request)
 	
-	
+	return render_to_response('rango/history.html',context)	
 	
 	
 	
