@@ -1,0 +1,24 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+<!-- bit of a bodge, can't i inherit load static from base.html? -->
+
+{% block title %}About Rango {% endblock %}
+
+
+{% block body_block %}
+	<div class ='hero-unit'>
+		<h1>About Rango</h1>
+		
+		This is <strong>Rango's about page</strong>.<br />
+		You've visited the site on <strong> {{visit_count}} occasion(s) </strong>.<br />
+		
+		<a href="/rango/">Index</a> <br /> <!-- serve up a template file, template/rango/-->
+		<h1>This is a story all about how</h1>
+		<strong> my life got flip-turned upside down </strong><br />
+		
+		Here's a picture of Rango! <br />
+		<img src ="{% static 'rango.jpg'%}" alt= 'picture of Rango'/>
+	</div>
+{% endblock %}
+		
+		

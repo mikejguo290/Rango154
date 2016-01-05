@@ -1,0 +1,19 @@
+<!--Doctype html-->
+{% extends 'rango/base.html' %}
+{%load static %}
+{% block title %}
+		Products
+{% endblock %}
+{% block body_block %}	
+	<h2><a href ="/rango/">Index</a></h2></br>
+	<h1>Look on our wares</h1>
+	
+	<h2>hat</h2>
+	<img src="{% static 'hat.jpg'%}" alt ='picture of hat'/>
+	<h2>guitar</h2>
+	<img src ="{% static 'guitar.jpg'%}" alt = "picture of guitar"/>
+	<h2>boots</h2>
+	<img src ="{% static 'boots.jpg'%}" alt = 'picture of boots' />
+	<h2>Harrison Ford jacket</h2>
+	<img src="{% static 'hanssolo.jpg'%}" alt ='picture of Hans Solo'/>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'rango/base.html' %}
+			{%block title%}Rango{%endblock%}
+		
+	</head>
+{% block body_block %}
+	<div class ='hero-unit'>
+		<h1>Register with Rango</h1>
+	<br />
+	
+		<div class = "container" >
+		{% if registered %}
+		<p> Thank you for registering.</p>
+		
+		<! -- thank you and return to main page -->
+			Rango says: <strong>thank you for registering!</strong>
+			
+			<p><a href ="/rango/login/" >Login</a>when you are ready to rango.</a></p>
+			
+		{% else %} <!-- generate forms iff registration = False, -->
+			
+			<form class ="form-sigin span8" id = "user_form" method ="POST" action ="/rango/register/"
+			enctype ="multipart/form-data">
+			
+			<!-- form's action is to POST data to url /rango/register which will link to and be 
+			processed by view.register -->
+			
+			<!-- enctype = "multipart/form-data is necessary for form to upload file -->
+			
+				{% csrf_token %}
+				
+				<h2 class ="form-sigin-heading">Sign up Here</h2>
+				<!-- as_p method wraps each element in a <p> element
+					each element appears in a new line-->
+				{% for field in user_form.visible_fields %}
+					{{ field.errors}}
+					{{ field.help_text}}<br />
+					{{ field}}<br />
+				{% endfor %}
+				{% for field in profile_form.visible_fields %}
+					{{ field.errors}}
+					{{ field.help_text}}<br />
+					{{ field }}<br />
+				{% endfor %}
+				<!-- before bootstrap
+				{{user_form.as_p}}
+				{{profile_form.as_p}} 
+				-->
+				<br />
+				<!-- Provide a button to click to submit the forms. -->		
+				<input class ="btn btn-primary" type ='submit' name = "submit" value = 'Register'/>
+			</form>
+				
+		{% endif %}
+		</div>
+		<!-- <h2><a href ="/rango/">Main Page</a></h2> -->
+	</div>
+{% endblock %}
