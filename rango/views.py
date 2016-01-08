@@ -23,12 +23,17 @@ def index(request):
 	# boldmessage is same as name of python template var we named in index.html
 	
 	category_list = Category.objects.order_by('-likes')[:5]
-	context_dict = {'categories':category_list } # so template variable == categories.
+	page_list = Page.objects.order_by('-views')[:5]
 	
 	for category in category_list:
 		category.url = category.name.replace(' ','_')
+
 	# dynamically add url attribute to each category in category_list, then pass it on 
 	# to index.html
+	
+	# DON'T do the same for page.url! These are not dynamic. 
+	
+	context_dict = {'categories':category_list, 'pages': page_list } # so template variable == categories.
 	
 	# return a rendered response to client
 	# shortcuts makes life easier

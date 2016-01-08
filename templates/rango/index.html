@@ -33,12 +33,23 @@
     	{% if pages %}
     	<ul>
     		{% for page in pages %}
+    			<li><a href = "{{ page.url}}">{{ page.title }}</a> </li>
+    		{% endfor %}
+    	</ul>
+    	{% else %}
+    		<strong>No pages are present</strong>
+    	{% endif %}	
+    	<!--
+    	{% if pages %}
+    	<ul>
+    		{% for page in pages %}
     		<li><a href ="{{ page.url}}">{{page.title}}</a> -{{ page.category }} {{ page.views}} view(s)</li>
     		{% endfor %} 
     	</ul>
     	{% else %}
     	<strong>No pages at present.</strong>
     	{% endif %}
+    	-->
     </div>
     <!--/span -->
 </div>
